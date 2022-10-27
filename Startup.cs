@@ -29,7 +29,7 @@ namespace WebApplication
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OJALETE", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OJAL", Version = "v1" });
             });
             services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:Default"]));
             services.AddControllers();
