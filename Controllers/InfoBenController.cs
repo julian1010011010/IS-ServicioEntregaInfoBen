@@ -26,7 +26,7 @@ namespace WebApplication.Controllers
         /// <returns></returns>
         /// 
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)] 
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -73,8 +73,8 @@ namespace WebApplication.Controllers
         /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [HttpGet ("GetBeneficiariosByFilters")]
-        public async Task<IActionResult> GetBeneficiariosByFilters(string pCedula , string pMunicipio) 
+        [HttpGet("GetBeneficiariosByFilters")]
+        public async Task<IActionResult> GetBeneficiariosByFilters(string pCedula, string pMunicipio)
         {
 
             try
@@ -83,13 +83,13 @@ namespace WebApplication.Controllers
                 Console.Write(connection);
                 await connection.OpenAsync();
 
-                string Query = "SELECT * FROM BeneficiariosAsociatividad as ba WHERE ba.numId = "+ pCedula + " AND ba.municipio LIKE '" + pMunicipio + "'";
+                string Query = "SELECT * FROM BeneficiariosAsociatividad as ba WHERE ba.numId = " + pCedula + " AND ba.municipio LIKE '" + pMunicipio + "'";
                 using var command = new MySqlCommand(Query, connection);
 
 
                 using var reader = await command.ExecuteReaderAsync();
- 
-                 
+
+
                 List<dynamic> Resposne = new();
 
                 while (await reader.ReadAsync())
@@ -118,9 +118,7 @@ namespace WebApplication.Controllers
 
         }
 
-    }
-
-    /// <summary>
+        /// <summary>
         /// Get all Municipios
         /// </summary>
         /// <returns></returns>
@@ -160,5 +158,5 @@ namespace WebApplication.Controllers
             }
         }
 
-
+    }
 }
