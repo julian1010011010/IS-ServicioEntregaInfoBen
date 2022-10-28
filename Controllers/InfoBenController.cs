@@ -64,23 +64,32 @@ namespace WebApplication.Controllers
             }
         }
 
+
         /// <summary>
-        /// Get all Municipios
+        ///   Get Beneficiarios By Filters
         /// </summary>
+        /// <param name="pCedula"></param>
+        /// <param name="pMunicipio"></param>
         /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [HttpGet("GetMunicipios")]
-        public async Task<IActionResult> GetMunicipios()
+        [HttpGet ("GetBeneficiariosByFilters")]
+        public async Task<IActionResult> GetBeneficiariosByFilters(string pCedula , string pMunicipio) 
         {
+
             try
             {
                 using var connection = new MySqlConnection(ConnectionStrings);
                 Console.Write(connection);
                 await connection.OpenAsync();
 
-                using var command = new MySqlCommand("SELECT * FROM MunicipiosDeptos;", connection);
+                string Query = "SELECT * FROM BeneficiariosAsociatividad as ba WHERE ba.numId = "+ pCedula + " AND ba.municipio LIKE '" + pMunicipio + "'";
+                using var command = new MySqlCommand(Query, connection);
+
+
                 using var reader = await command.ExecuteReaderAsync();
+ 
+                 
                 List<dynamic> Resposne = new();
 
                 while (await reader.ReadAsync())
@@ -89,9 +98,12 @@ namespace WebApplication.Controllers
 
                     var Tabla = new
                     {
-                        CodigoMunicipio = reader.GetValue(0),
-                        Municipio = reader.GetValue(1),
-                        Departamento = reader.GetValue(3)
+                        DocumentoTipo = reader.GetValue(0),
+                        DocumentoNumero = reader.GetValue(1),
+                        NombreCompleto = reader.GetValue(2) + " " + reader.GetValue(3) + " " + reader.GetValue(4) + " " + reader.GetValue(5),
+                        CorreoElectronico = reader.GetValue(8),
+                        Municipio = reader.GetValue(9),
+                        Departamento = reader.GetValue(10),
                     };
                     Resposne.Add(Tabla);
                 }
@@ -102,9 +114,9 @@ namespace WebApplication.Controllers
             {
                 return BadRequest(e.InnerException.ToString());
             }
+
+
         }
-
-
 
     }
 }
