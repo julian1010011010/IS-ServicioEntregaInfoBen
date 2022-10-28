@@ -119,4 +119,46 @@ namespace WebApplication.Controllers
         }
 
     }
+
+    /// <summary>
+        /// Get all Municipios
+        /// </summary>
+        /// <returns></returns>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [HttpGet("GetMunicipios")]
+        public async Task<IActionResult> GetMunicipios()
+        {
+            try
+            {
+                using var connection = new MySqlConnection(ConnectionStrings);
+                Console.Write(connection);
+                await connection.OpenAsync();
+
+                using var command = new MySqlCommand("SELECT * FROM MunicipiosDeptos;", connection);
+                using var reader = await command.ExecuteReaderAsync();
+                List<dynamic> Resposne = new();
+
+                while (await reader.ReadAsync())
+                {
+                    var Cedular = reader.GetValue(1);
+
+                    var Tabla = new
+                    {
+                        CodigoMunicipio = reader.GetValue(0),
+                        Municipio = reader.GetValue(1),
+                        Departamento = reader.GetValue(3)
+                    };
+                    Resposne.Add(Tabla);
+                }
+                return Ok(Resposne);
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.InnerException.ToString());
+            }
+        }
+
+
 }
