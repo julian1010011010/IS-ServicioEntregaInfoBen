@@ -76,9 +76,9 @@ export class HomeComponent implements OnInit {
   onSubmit(){
     let cc = this.documentoNumeroCtrl?.value;
     let mun = this.municipioCtrl?.value;
-    if(cc != null){
+    if(cc != null || mun != null){
       this.isSearch = true;
-      this.commonService.getBeneficiariosByFilters(cc, mun).subscribe(res => {
+      this.commonService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
           this.dataSource = new MatTableDataSource( res );
         }

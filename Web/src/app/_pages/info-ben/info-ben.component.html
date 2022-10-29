@@ -87,7 +87,7 @@
             color="accent"
             type="submit"
             class="btn-table btn-consultar"
-            [disabled]="this.documentoNumeroCtrl?.value == null"
+            [disabled]="this.documentoNumeroCtrl?.value == null && this.municipioCtrl?.value == null"
             >
             Consultar
           </button>
