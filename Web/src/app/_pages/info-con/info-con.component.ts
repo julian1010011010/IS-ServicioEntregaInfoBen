@@ -3,14 +3,14 @@ import { FormBuilder, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
-import { InfoBenService } from 'src/app/_services/infoBen/infoBen.service';
+import { InfoConService } from 'src/app/_services/infoCon/infoCon.service';
 
 @Component({
-  selector: 'app-info-ben',
-  templateUrl: './info-ben.component.html',
-  styleUrls: ['./info-ben.component.scss']
+  selector: 'app-info-con',
+  templateUrl: './info-con.component.html',
+  styleUrls: ['./info-con.component.scss']
 })
-export class InfoBenComponent implements OnInit {
+export class InfoConComponent implements OnInit {
 
   public listBeneficiarios!: any[];
   filteredDocumento: Observable<any[]> | undefined;
@@ -33,7 +33,7 @@ export class InfoBenComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private infoBenService: InfoBenService,
+    private infoConService: InfoConService,
   ) {
     this.municipioCtrl = new FormControl();
     this.documentoNumeroCtrl = new FormControl();
@@ -53,11 +53,11 @@ export class InfoBenComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.infoBenService.getBeneficiarios().subscribe(res => {
+    this.infoConService.getBeneficiarios().subscribe(res => {
       this.listBeneficiarios = res;
     });
 
-    this.infoBenService.getMunicipios().subscribe(res => {
+    this.infoConService.getMunicipios().subscribe(res => {
       this.listMunicipios = res;
     });
 
@@ -78,7 +78,7 @@ export class InfoBenComponent implements OnInit {
     let mun = this.municipioCtrl?.value;
     if(cc != null || mun != null){
       this.isSearch = true;
-      this.infoBenService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
+      this.infoConService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
           this.dataSource = new MatTableDataSource( res );
         }

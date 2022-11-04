@@ -10,7 +10,7 @@ strong {
     font-weight: 700;
   }
 }
- 
+
 .mat-typography p {
   margin: 0 0 6px;
 }
@@ -46,7 +46,7 @@ strong {
   }
 
   @media only screen and (min-width: 75em) {
-    width: 71rem;
+    width: 80rem;
 
     mat-drawer-content & {
       width: calc(100vw - 30em);

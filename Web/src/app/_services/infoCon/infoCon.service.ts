@@ -6,21 +6,21 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class InfoBenService {
+export class InfoConService {
 
   constructor(private http: HttpClient) { }
 
   getMunicipios(): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.apiUrl}/InfoBenController/GetMunicipios`);
+    return this.http.get<any[]>(`${environment.apiUrl}/InfoConController/GetMunicipios`);
   }
 
   getBeneficiariosByFilters(pCedula: string, pMunicipio: string): Observable<any[]>
   {
-    return this.http.get<any[]>(`${environment.apiUrl}/InfoBenController/GetBeneficiariosByFilters?pCedula=${pCedula}&pMunicipio=${pMunicipio}`);
+    return this.http.get<any[]>(`${environment.apiUrl}/InfoConController/GetBeneficiariosByFilters?pCedula=${pCedula}&pMunicipio=${pMunicipio}`);
   }
 
   getBeneficiarios(): Observable<any[]>{
-    return this.http.get<any[]>(`${environment.apiUrl}/InfoBenController`);
+    return this.http.get<any[]>(`${environment.apiUrl}/InfoConController`);
   }
 
 }

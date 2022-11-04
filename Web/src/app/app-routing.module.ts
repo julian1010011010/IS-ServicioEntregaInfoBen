@@ -1,9 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './_pages/info-ben/info-ben.component';
+import { SkeletonComponent } from './layout/skeleton/skeleton.component';
+import { HomeComponent } from './_pages/home/home.component';
+import { InfoBenComponent } from './_pages/info-ben/info-ben.component';
+import { InfoConComponent } from './_pages/info-con/info-con.component';
 
-const routes: Routes = [{ path:  '', component:  HomeComponent}];
 
+const routes: Routes = [
+  {
+    path: '',
+    component: SkeletonComponent,
+    children: [
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'asociatividad',
+        component: InfoBenComponent
+      },
+      {
+        path: 'asistencia-tecnica',
+        component: InfoConComponent
+      }
+    ]
+  }
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
