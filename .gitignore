@@ -29,3 +29,7 @@ obj/Debug/net6.0/WebApplication.assets.cache
 obj/Debug/net6.0/ref/WebApplication.dll
 .vs/WebApplication/DesignTimeBuild/.dtbcache.v2
 obj/WebApplication.csproj.nuget.g.targets
+obj/Debug/net6.0/WebApplication.dll
+obj/Debug/net6.0/WebApplication.pdb
+obj/staticwebassets.pack.sentinel
+.vs/WebApplication/v17/.suo
