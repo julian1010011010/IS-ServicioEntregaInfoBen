@@ -1,0 +1,27 @@
+input[type="text" i] {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 3px solid black;
+}
+.btn-consultar{
+  background: #3366cc;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+.btn-limpiar{
+  background: #e6effd;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.cdk-overlay-container{
+  margin: 0px 25rem !important;
+}
+
+.container{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
