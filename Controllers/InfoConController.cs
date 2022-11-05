@@ -32,7 +32,7 @@ namespace WebApplication.Controllers
                 Console.Write(connection);
                 await connection.OpenAsync();
 
-                using var command = new MySqlCommand("SELECT * FROM BeneficiariosAsociatividad;", connection);
+                using var command = new MySqlCommand("SELECT * FROM bancoproyectos;", connection);
                 using var reader = await command.ExecuteReaderAsync();
                 List<dynamic> Resposne = new();
 
@@ -77,7 +77,7 @@ namespace WebApplication.Controllers
                 Console.Write(connection);
                 await connection.OpenAsync();
 
-                string Query = "SELECT * FROM BeneficiariosAsociatividad as ba WHERE ba.numId = " + pCedula + " AND ba.municipio LIKE '" + pMunicipio + "'";
+                string Query = "SELECT * FROM bancoproyectos as ba WHERE ba.numId = " + pCedula + " AND ba.municipio LIKE '" + pMunicipio + "'";
                 using var command = new MySqlCommand(Query, connection);
 
 
