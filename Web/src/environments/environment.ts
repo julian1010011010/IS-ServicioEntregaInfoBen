@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://preasivamosback.ffie.com.co',
+  apiUrl: 'https://preasivamosback.ffie.com.co',
 };
 
 /*
