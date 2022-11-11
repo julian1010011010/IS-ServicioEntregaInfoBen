@@ -25,6 +25,7 @@ import { InfoBenComponent } from './_pages/info-ben/info-ben.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { InfoConComponent } from './_pages/info-con/info-con.component';
 import { MatInputModule } from '@angular/material/input';
+import { InfoAddComponent } from './_pages/info-add/info-add.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatInputModule } from '@angular/material/input';
     SkeletonComponent,
     SidenavComponent,
     InfoBenComponent,
-    InfoConComponent
+    InfoConComponent,
+    InfoAddComponent
   ],
   imports: [
     BrowserModule,

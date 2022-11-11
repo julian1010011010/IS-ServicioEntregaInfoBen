@@ -3,14 +3,14 @@ import { FormBuilder, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
-import { InfoConService } from 'src/app/_services/infoCon/infoCon.service';
+import { InfoAddService } from 'src/app/_services/infoAdd/infoAdd.service';
 
 @Component({
   selector: 'app-info-con',
-  templateUrl: './info-con.component.html',
-  styleUrls: ['./info-con.component.scss']
+  templateUrl: './info-add.component.html',
+  styleUrls: ['./info-add.component.scss']
 })
-export class InfoConComponent implements OnInit {
+export class InfoAddComponent implements OnInit {
 
   public listBeneficiarios!: any[];
   filteredDocumento: Observable<any[]> | undefined;
@@ -33,7 +33,7 @@ export class InfoConComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private infoConService: InfoConService,
+    private InfoAddService: InfoAddService,
   ) {
     this.municipioCtrl = new FormControl();
     this.documentoNumeroCtrl = new FormControl();
@@ -53,11 +53,11 @@ export class InfoConComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.infoConService.getBeneficiarios().subscribe(res => {
+    this.InfoAddService.getBeneficiarios().subscribe(res => {
       this.listBeneficiarios = res;
     });
 
-    this.infoConService.getMunicipios().subscribe(res => {
+    this.InfoAddService.getMunicipios().subscribe(res => {
       this.listMunicipios = res;
     });
 
@@ -79,8 +79,9 @@ export class InfoConComponent implements OnInit {
     if(cc != null || mun != null){
       this.isSearch = true;
       if(mun != null)
-      mun = (mun.trim()).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      this.infoConService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
+        mun = (mun.trim()).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+      this.InfoAddService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
           this.dataSource = new MatTableDataSource( res );
         }

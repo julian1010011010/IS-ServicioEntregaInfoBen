@@ -78,6 +78,9 @@ export class InfoBenComponent implements OnInit {
     let mun = this.municipioCtrl?.value;
     if(cc != null || mun != null){
       this.isSearch = true;
+      console.log(mun.trim());
+      if(mun != null)
+        mun = (mun.replace(/^\s+|\s+$/g, ' ')).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       this.infoBenService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
           this.dataSource = new MatTableDataSource( res );
