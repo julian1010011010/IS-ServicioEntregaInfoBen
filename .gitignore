@@ -33,3 +33,6 @@ obj/Debug/net6.0/WebApplication.dll
 obj/Debug/net6.0/WebApplication.pdb
 obj/staticwebassets.pack.sentinel
 .vs/WebApplication/v17/.suo
+.vs/WebApplication/v17/.suo
+*.sentinel
+.vs/WebApplication/v17/.suo
