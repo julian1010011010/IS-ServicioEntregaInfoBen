@@ -24,6 +24,7 @@ import { HomeComponent } from './_pages/home/home.component';
 import { InfoBenComponent } from './_pages/info-ben/info-ben.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { InfoConComponent } from './_pages/info-con/info-con.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { InfoConComponent } from './_pages/info-con/info-con.component';
     MatIconModule,
     MatListModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 html, body { height: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;-webkit-print-color-adjust:exact; }
-.cdk-overlay-container{
-  margin: 0px 25rem !important;
-}
 
 @import "assets/scss/variables";
 @import "assets/scss/animations";
