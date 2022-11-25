@@ -339,8 +339,8 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-asivamosffie/.vs/asivamosffie/v16/.suo
-asivamosffie.web/asivamosffie/src/environments/environment.ts
-asivamosffie.web/package-lock.json
-asivamosffie.api/appsettings.json
+WebApplication/.vs/asivamosffie/v16/.suo
+WebApplication.web/asivamosffie/src/environments/environment.ts
+WebApplication.web/package-lock.json
+WebApplication.api/appsettings.json
 *.json
