@@ -62,3 +62,5 @@ C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\WebApplication.pdb
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\WebApplication.genruntimeconfig.cache
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\ref\WebApplication.dll
+C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\bin\Release\net6.0\Web\proxy.conf.json
+C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\bin\Release\net6.0\Web\tslint.json

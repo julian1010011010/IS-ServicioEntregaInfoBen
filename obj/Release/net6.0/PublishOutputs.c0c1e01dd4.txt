@@ -6,9 +6,11 @@ C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\Web\angular.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\Web\package-lock.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\Web\package.json
+C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\Web\proxy.conf.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\Web\tsconfig.app.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\Web\tsconfig.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\Web\tsconfig.spec.json
+C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\Web\tslint.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\WebApplication.dll
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\WebApplication.runtimeconfig.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\obj\Release\net6.0\PubTmp\Out\WebApplication.pdb
