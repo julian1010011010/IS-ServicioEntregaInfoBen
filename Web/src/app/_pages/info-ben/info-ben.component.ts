@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { InfoBenService } from 'src/app/_services/infoBen/infoBen.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-info-ben',
@@ -11,6 +13,9 @@ import { InfoBenService } from 'src/app/_services/infoBen/infoBen.service';
   styleUrls: ['./info-ben.component.scss']
 })
 export class InfoBenComponent implements OnInit {
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   public listBeneficiarios!: any[];
   filteredDocumento: Observable<any[]> | undefined;
@@ -84,6 +89,7 @@ export class InfoBenComponent implements OnInit {
       this.infoBenService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
           this.dataSource = new MatTableDataSource( res );
+          this.inicializarTabla();
         }
       });
     }
@@ -95,6 +101,11 @@ export class InfoBenComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
     this.municipioCtrl?.setValue(null);
     this.documentoNumeroCtrl?.setValue(null);
+  }
+
+  inicializarTabla() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
 }

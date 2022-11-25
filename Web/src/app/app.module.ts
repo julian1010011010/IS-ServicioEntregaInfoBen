@@ -26,6 +26,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { InfoConComponent } from './_pages/info-con/info-con.component';
 import { MatInputModule } from '@angular/material/input';
 import { InfoAddComponent } from './_pages/info-add/info-add.component';
+import { InfoAdtComponent } from './_pages/info-adt/info-adt.component';
+import { AllComponent } from './_pages/all/all.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { InfoAddComponent } from './_pages/info-add/info-add.component';
     SidenavComponent,
     InfoBenComponent,
     InfoConComponent,
-    InfoAddComponent
+    InfoAddComponent,
+    InfoAdtComponent,
+    AllComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,8 @@ import { InfoAddComponent } from './_pages/info-add/info-add.component';
     MatListModule,
     MatToolbarModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

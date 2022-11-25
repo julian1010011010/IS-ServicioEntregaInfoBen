@@ -22,6 +22,16 @@
         <span *ngIf="isExpanded" class="menu-item">PIDAR</span>
       </mat-list-item>
 
+      <mat-list-item routerLink="/adt" routerLinkActive="active">
+        <mat-icon mat-list-icon>nature_people</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Adecuación de tierras (ADT)</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/all" routerLinkActive="active">
+        <mat-icon mat-list-icon>select_all</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Beneficiarios</span>
+      </mat-list-item>
+
     </mat-nav-list>
   </mat-sidenav>
 

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { InfoAddService } from 'src/app/_services/infoAdd/infoAdd.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-info-con',
@@ -11,6 +13,9 @@ import { InfoAddService } from 'src/app/_services/infoAdd/infoAdd.service';
   styleUrls: ['./info-add.component.scss']
 })
 export class InfoAddComponent implements OnInit {
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   public listBeneficiarios!: any[];
   filteredDocumento: Observable<any[]> | undefined;
@@ -84,6 +89,7 @@ export class InfoAddComponent implements OnInit {
       this.InfoAddService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
           this.dataSource = new MatTableDataSource( res );
+          this.inicializarTabla();
         }
       });
     }
@@ -96,5 +102,11 @@ export class InfoAddComponent implements OnInit {
     this.municipioCtrl?.setValue(null);
     this.documentoNumeroCtrl?.setValue(null);
   }
+
+  inicializarTabla() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
 
 }

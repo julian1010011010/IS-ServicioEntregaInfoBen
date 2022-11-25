@@ -3,16 +3,16 @@ import { FormBuilder, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
-import { InfoConService } from 'src/app/_services/infoCon/infoCon.service';
+import { InfoAdtService } from 'src/app/_services/infoAdt/infoAdt.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
 @Component({
-  selector: 'app-info-con',
-  templateUrl: './info-con.component.html',
-  styleUrls: ['./info-con.component.scss']
+  selector: 'app-info-adt',
+  templateUrl: './info-adt.component.html',
+  styleUrls: ['./info-adt.component.scss']
 })
-export class InfoConComponent implements OnInit {
+export class InfoAdtComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -38,7 +38,7 @@ export class InfoConComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private infoConService: InfoConService,
+    private infoAdtService: InfoAdtService,
   ) {
     this.municipioCtrl = new FormControl();
     this.documentoNumeroCtrl = new FormControl();
@@ -58,11 +58,11 @@ export class InfoConComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.infoConService.getBeneficiarios().subscribe(res => {
+    this.infoAdtService.getBeneficiarios().subscribe(res => {
       this.listBeneficiarios = res;
     });
 
-    this.infoConService.getMunicipios().subscribe(res => {
+    this.infoAdtService.getMunicipios().subscribe(res => {
       this.listMunicipios = res;
     });
 
@@ -85,7 +85,7 @@ export class InfoConComponent implements OnInit {
       this.isSearch = true;
       if(mun != null)
       mun = (mun.trim()).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      this.infoConService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
+      this.infoAdtService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
           this.dataSource = new MatTableDataSource( res );
           this.inicializarTabla();
@@ -106,5 +106,4 @@ export class InfoConComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
-
 }
