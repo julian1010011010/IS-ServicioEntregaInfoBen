@@ -11,15 +11,11 @@ namespace WebApplication.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class InfoAddControllerController : ControllerBase
+    public class InfoAdtControllerController : ControllerBase
     {
 
-        private readonly string ConnectionStrings = "Server=bdasociatividad.c6m5z9oxzvab.us-west-2.rds.amazonaws.com;User ID=admin;Password=abcdef12345;Database=bdasociatividad";
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
+        private readonly  static string ConnectionStrings = "Server=bdasociatividad.c6m5z9oxzvab.us-west-2.rds.amazonaws.com;User ID=admin;Password=abcdef12345;Database=bdasociatividad";
+      
         /// <summary>
         /// Get all user 
         /// </summary>
@@ -36,7 +32,7 @@ namespace WebApplication.Controllers
                 Console.Write(connection);
                 await connection.OpenAsync();
 
-                using var command = new MySqlCommand("SELECT * FROM extencionAgro;", connection);
+                using var command = new MySqlCommand("SELECT * FROM usuariosADT;", connection);
                 using var reader = await command.ExecuteReaderAsync();
                 List<dynamic> Resposne = new();
 
@@ -62,9 +58,7 @@ namespace WebApplication.Controllers
             {
                 return BadRequest(e.InnerException.ToString());
             }
-        }
-
-
+        } 
         /// <summary>
         ///   Get Beneficiarios By Filters
         /// </summary>
@@ -85,11 +79,12 @@ namespace WebApplication.Controllers
                 string Query = string.Empty;
 
                 if (!string.IsNullOrEmpty(pCedula) && !string.IsNullOrEmpty(pMunicipio))
-                    Query = "SELECT * FROM extencionAgro as ba WHERE ba.numId = " + pCedula + " AND ba.municipio LIKE '" + pMunicipio + "'";
+                    Query = "SELECT * FROM usuariosADT as ba WHERE ba.numId = " + pCedula + " AND ba.municipio LIKE '" + pMunicipio + "'";
                 else if (!string.IsNullOrEmpty(pCedula))
-                    Query = "SELECT * FROM extencionAgro as ba WHERE ba.numId = " + pCedula;
+                    Query = "SELECT * FROM usuariosADT as ba WHERE ba.numId = " + pCedula;
                 else
-                    Query = "SELECT * FROM extencionAgro as ba WHERE ba.municipio LIKE '" + pMunicipio + "'";
+                    Query = "SELECT * FROM usuariosADT as ba WHERE ba.municipio LIKE '" + pMunicipio + "'";
+
 
 
                 using var command = new MySqlCommand(Query, connection);
