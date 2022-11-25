@@ -105,6 +105,6 @@
   <div *ngIf="data.length > 0">
     <app-table [data]="data"></app-table>
   </div>
-
+  <label *ngIf="data.length <= 0 && isSearch == true">No se encontraron resultados</label>
 </div>
 
