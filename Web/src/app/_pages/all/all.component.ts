@@ -51,40 +51,41 @@ export class AllComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    let data = [];
     this.infoConService.getBeneficiarios().subscribe(res => {
       if(res != null){
         res.forEach(element => {
           element.fuenteDato = 'Asistencia Técnica';
-          this.dataSource.data.push(element);
+          data.push(element);
         });
       }
-    });
-    this.infoBenService.getBeneficiarios().subscribe(res => {
-      if(res != null){
-        res.forEach(element => {
-          element.fuenteDato = 'Asociatividad';
-          this.dataSource.data.push(element);
+      this.infoBenService.getBeneficiarios().subscribe(res => {
+        if(res != null){
+          res.forEach(element => {
+            element.fuenteDato = 'Asociatividad';
+            data.push(element);
+          });
+        }
+        this.InfoAdtService.getBeneficiarios().subscribe(res => {
+          if(res != null){
+            res.forEach(element => {
+              element.fuenteDato = 'ADT';
+              data.push(element);
+            });
+          }
+          this.InfoAddService.getBeneficiarios().subscribe(res => {
+            if(res != null){
+              res.forEach(element => {
+                element.fuenteDato = 'PIDAR';
+                data.push(element);
+              });
+              this.dataSource = new MatTableDataSource( data );
+              this.inicializarTabla();
+            }
+          });
         });
-      }
+      });
     });
-    this.InfoAdtService.getBeneficiarios().subscribe(res => {
-      if(res != null){
-        res.forEach(element => {
-          element.fuenteDato = 'ADT';
-          this.dataSource.data.push(element);
-        });
-      }
-    });
-    this.InfoAddService.getBeneficiarios().subscribe(res => {
-      if(res != null){
-        res.forEach(element => {
-          element.fuenteDato = 'PIDAR';
-          this.dataSource.data.push(element);
-        });
-      }
-    });
-    this.inicializarTabla();
   }
 
   applyFilter(event: Event) {

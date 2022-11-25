@@ -14,9 +14,6 @@ import { MatSort } from '@angular/material/sort';
 })
 export class InfoAddComponent implements OnInit {
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-
   public listBeneficiarios!: any[];
   filteredDocumento: Observable<any[]> | undefined;
   documentoNumeroCtrl: FormControl;
@@ -24,15 +21,7 @@ export class InfoAddComponent implements OnInit {
   public listMunicipios!: any[];
   municipioCtrl: FormControl;
   filteredMunicipios: Observable<any[]> | undefined;
-
-  dataSource = new MatTableDataSource();
-  displayedColumns: string[] = [
-    'documentoTipo',
-    'documentoNumero',
-    'nombreCompleto',
-    'departamento',
-    'correoElectronico',
-  ];
+  data : any[] = [];
   isSearch: boolean = false;
 
 
@@ -88,8 +77,7 @@ export class InfoAddComponent implements OnInit {
 
       this.InfoAddService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
-          this.dataSource = new MatTableDataSource( res );
-          this.inicializarTabla();
+          this.data = res;
         }
       });
     }
@@ -98,14 +86,9 @@ export class InfoAddComponent implements OnInit {
 
   clear(){
     this.isSearch = false;
-    this.dataSource = new MatTableDataSource();
     this.municipioCtrl?.setValue(null);
     this.documentoNumeroCtrl?.setValue(null);
-  }
-
-  inicializarTabla() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    this.data = [];
   }
 
 

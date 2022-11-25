@@ -1,11 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { MatTableDataSource } from '@angular/material/table';
 import { InfoConService } from 'src/app/_services/infoCon/infoCon.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-info-con',
@@ -14,9 +11,6 @@ import { MatSort } from '@angular/material/sort';
 })
 export class InfoConComponent implements OnInit {
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-
   public listBeneficiarios!: any[];
   filteredDocumento: Observable<any[]> | undefined;
   documentoNumeroCtrl: FormControl;
@@ -24,20 +18,11 @@ export class InfoConComponent implements OnInit {
   public listMunicipios!: any[];
   municipioCtrl: FormControl;
   filteredMunicipios: Observable<any[]> | undefined;
-
-  dataSource = new MatTableDataSource();
-  displayedColumns: string[] = [
-    'documentoTipo',
-    'documentoNumero',
-    'nombreCompleto',
-    'departamento',
-    'correoElectronico',
-  ];
+  data : any[] = [];
   isSearch: boolean = false;
 
 
   constructor(
-    private fb: FormBuilder,
     private infoConService: InfoConService,
   ) {
     this.municipioCtrl = new FormControl();
@@ -87,8 +72,7 @@ export class InfoConComponent implements OnInit {
       mun = (mun.trim()).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       this.infoConService.getBeneficiariosByFilters(cc == null ? '' : cc, mun == null ? '' : mun).subscribe(res => {
         if(res != null){
-          this.dataSource = new MatTableDataSource( res );
-          this.inicializarTabla();
+          this.data = res;
         }
       });
     }
@@ -97,14 +81,9 @@ export class InfoConComponent implements OnInit {
 
   clear(){
     this.isSearch = false;
-    this.dataSource = new MatTableDataSource();
     this.municipioCtrl?.setValue(null);
     this.documentoNumeroCtrl?.setValue(null);
-  }
-
-  inicializarTabla() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    this.data = [];
   }
 
 }

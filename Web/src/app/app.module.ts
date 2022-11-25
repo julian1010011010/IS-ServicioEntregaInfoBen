@@ -29,6 +29,7 @@ import { InfoAddComponent } from './_pages/info-add/info-add.component';
 import { InfoAdtComponent } from './_pages/info-adt/info-adt.component';
 import { AllComponent } from './_pages/all/all.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { TableComponent } from './_pages/table/table.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     InfoConComponent,
     InfoAddComponent,
     InfoAdtComponent,
-    AllComponent
+    AllComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
