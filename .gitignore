@@ -81,3 +81,10 @@ obj/staticwebassets.pack.sentinel
 .vs/WebApplication/v17/.futdcache.v1
 .vs/WebApplication/v17/.suo
 obj/staticwebassets.pack.sentinel
+.vs/ProjectEvaluation/webapplication.metadata.v2
+*.v2
+.vs/ProjectEvaluation/webapplication.projects.v2
+.vs/WebApplication/DesignTimeBuild/.dtbcache.v2
+*.v1
+.vs/WebApplication/v17/.suo
+obj/staticwebassets.pack.sentinel
