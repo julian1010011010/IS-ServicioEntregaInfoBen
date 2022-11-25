@@ -62,3 +62,5 @@ C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\bin\Debug\net6.0\W
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\bin\Debug\net6.0\Web\tsconfig.app.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\bin\Debug\net6.0\Web\tsconfig.json
 C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\bin\Debug\net6.0\Web\tsconfig.spec.json
+C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\bin\Debug\net6.0\Web\proxy.conf.json
+C:\Users\Javeriana\Documents\GitHub\IS-ServicioEntregaInfoBen\bin\Debug\net6.0\Web\tslint.json
