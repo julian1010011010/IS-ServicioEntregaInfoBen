@@ -105,3 +105,8 @@ obj/staticwebassets.pack.sentinel
 .vs/WebApplication/v17/.suo
 .vs/WebApplication/v17/.suo
 *.vs/WebApplication/v17/.suo
+*.v2
+*.v1
+.vs/WebApplication/v17/.suo
+.gitignore
+.vs/WebApplication/DesignTimeBuild/.dtbcache.v2
